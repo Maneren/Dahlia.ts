@@ -1,18 +1,37 @@
 {
   "name": "dahlia",
+  "author": "Maneren <maneren731@gmail.com>",
   "version": "0.1.0",
-  "main": "src/index.ts",
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "typings": "dist/src/index.d.ts",
+  "type": "commonjs",
   "scripts": {
-    "test": "jest",
-    "lint": "rome check src tests"
+    "prepublishOnly": "tsc",
+    "build": "tsc",
+    "test": "rome check src tests ./*.js && jest",
+    "format": "rome check --apply-suggested src tests ./*.js && rome format --write src tests ./*.js"
   },
   "keywords": [
     "dahlia",
     "ansi",
     "color"
   ],
-  "author": "Maneren",
-  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Maneren/Dahlia.ts"
+  },
+  "homepage": "https://github.com/Maneren/Dahlia.ts",
+  "bugs": {
+    "url": "https://github.com/Maneren/Dahlia.ts",
+    "email": "maneren731@gmail.com"
+  },
+  "exports": {
+    ".": "./dist/src/index.js"
+  },
   "devDependencies": {
     "@types/jest": "^29.4.2",
     "@types/node": "^18.15.3",
@@ -23,5 +42,8 @@
   },
   "dependencies": {
     "@maneren/utils": "^6.7.2"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
