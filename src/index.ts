@@ -66,7 +66,7 @@ import {
   fill_template,
   remove_all_regexes,
   panic,
-  has_rey,
+  has_key,
 } from "./utils";
 
 /** Specifies usable color depth levels */
@@ -164,14 +164,14 @@ export class Dahlia {
       return fill_rgb_template(formats[24], r, g, b);
     }
 
-    if (has_rey(FORMATTERS, code)) {
+    if (has_key(FORMATTERS, code)) {
       return fill_template(formats[3], FORMATTERS[code]);
     }
 
     const template = formats[this.depth];
 
     if (this.depth === Depth.High) {
-      if (!has_rey(COLORS_24BIT, code)) return null;
+      if (!has_key(COLORS_24BIT, code)) return null;
       const [r, g, b] = COLORS_24BIT[code];
 
       return fill_rgb_template(template, r, g, b);
@@ -179,7 +179,7 @@ export class Dahlia {
 
     const color_map = COLORS[this.depth];
 
-    if (!has_rey(color_map, code)) return null;
+    if (!has_key(color_map, code)) return null;
     let value = color_map[code];
 
     if (bg && this.depth <= Depth.Low) {

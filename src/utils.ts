@@ -2,7 +2,7 @@ export const panic = (msg: string) => {
   throw msg;
 };
 
-export const has_rey = <O extends Record<string, unknown>>(
+export const has_key = <O extends Record<string, unknown>>(
   obj: O,
   key: PropertyKey,
 ): key is keyof O => key in obj;
