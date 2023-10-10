@@ -153,6 +153,9 @@ export class Dahlia {
     return answer.slice(0, -1);
   }
 
+  /**
+   * Converts dahlia color code to the respective ansi code
+   */
   private get_ansi(code: string, bg: boolean): string | null {
     const formats = bg ? BG_FORMAT_TEMPLATES : FORMAT_TEMPLATES;
 
